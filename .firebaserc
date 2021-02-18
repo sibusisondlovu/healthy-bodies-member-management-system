@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "health-bodies": {
+      "hosting": {
+        "healthy-bodies-member-management-system": [
+          "health-bodies"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "health-bodies"
+  }
+}

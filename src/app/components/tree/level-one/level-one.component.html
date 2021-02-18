@@ -1,0 +1,50 @@
+<section class="content-header">
+  <ol class="breadcrumb">
+    <li>
+      <a href="#"><i class="fa fa-dashboard"></i> Home</a>
+    </li>
+    <li class="active">Members</li>
+    <li class="active">{{ memberCode }}</li>
+  </ol>
+</section>
+
+<section class="content">
+  <div class="row">
+    <div class="col-md-7">
+      <div class="box">
+        <div class="box-header with-border">
+          <h3 class="box-title">Level One of {{ memberCode }}</h3>
+        </div>
+
+        <div *ngIf="resultsSize != 0; else notShow">
+          <div class="box-body">
+            <table class="table table-bordered">
+              <tr>
+                <th style="width: 30px">#</th>
+                <th>Code</th>
+                <th>Name and Surname</th>
+                <th></th>
+              </tr>
+              <tr *ngFor="let child of children | async; let i = index">
+                <td class="text-center">{{ i + 1 }}</td>
+                <td>{{ child.child_code }}</td>
+                <td>{{ child.child_name }} {{ child.child_surname }}</td>
+                <td>
+                  <button
+                    class="btn btn-info btn-xs"
+                    [routerLink]="['/level-two', child.child_code]"
+                  >
+                    Downline
+                  </button>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #notShow>
+    <h3 class="text-center">No members recruited.</h3>
+  </ng-template>
+</section>

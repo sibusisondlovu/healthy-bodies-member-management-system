@@ -1,0 +1,545 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <h1>
+    New Order
+    <small>{{ memberCode }}</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li>
+      <a href="#"><i class="fa fa-dashboard"></i> Home</a>
+    </li>
+    <li class="active">Members</li>
+    <li class="active">Orders</li>
+  </ol>
+</section>
+
+<section class="content">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box">
+        <div class="box-header">
+          <div class="box-tools"></div>
+          <div class="col-md-12">
+            <!-- Invoice Tile -->
+            <div class="dash-tile dash-tile-dark no-opacity remove-margin">
+              <!-- Content -->
+              <div class="dash-tile-content">
+                <div
+                  class="dash-tile-content-inner-fluid dash-tile-content-light"
+                >
+                  <!-- Addresses -->
+                  <div class="row">
+                    <div class="col-md-6">
+                      <address>
+                        <strong
+                          ><i class="fa fa-building"></i> Healthy Bodies</strong
+                        ><br />
+                        417 Anton Lembede Street<br />
+                        Durban<br />
+                        4000<br /><br />
+                        <abbr title="Phone"><i class="fa fa-phone"></i> </abbr>
+                        031 581 0005
+                      </address>
+                    </div>
+                    <div class="col-md-5 col-md-offset-1">
+                      <table class="table table-borderless table-condensed">
+                        <tbody>
+                          <tr>
+                            <td><strong>Bill To:</strong></td>
+                            <td>
+                              <address>
+                                <strong>{{ customer }}</strong
+                                ><br />
+                                {{ memberCode }}<br />
+                                {{ address }}
+                              </address>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <!-- END Addresses -->
+
+                  <!-- Product Table -->
+                  <table class="table table-borderless table-hover">
+                    <thead>
+                      <tr class="d-flex">
+                        <th></th>
+                        <th class="col-3">Product</th>
+                        <th class="hidden-xs hidden-sm">Retail Price</th>
+                        <th class="hidden-xs hidden-sm text-center">
+                          Member Price
+                        </th>
+                        <th class="col-1">Quantity</th>
+                        <th class="text-center" style="width: 50px">Points</th>
+                        <th class="text-right" style="width: 300px">
+                          Line Total
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="success">
+                        <td>1</td>
+                        <td>Body Remedy</td>
+                        <td>R 150.00</td>
+                        <td>R 110.00</td>
+                        <td>
+                          <input
+                            [(ngModel)]="bodyRemedyQty"
+                            (keyup)="updateLineTotals()"
+                            size="3"
+                            maxlength="2"
+                            type="number"
+                            class="form-control"
+                          />
+                        </td>
+                        <td class="text-center" style="width: 50px">29pv</td>
+                        <td class="text-center">{{ bodyRemedyLineTotal }}</td>
+                      </tr>
+                      <tr class="success">
+                        <td>2</td>
+                        <td>Energy Shake</td>
+                        <td>R 150.00</td>
+                        <td>R 110.00</td>
+                        <td>
+                          <input
+                            size="3"
+                            [(ngModel)]="energyShakeQty"
+                            (keyup)="updateLineTotals()"
+                            maxlength="2"
+                            type="number"
+                            class="form-control"
+                          />
+                        </td>
+                        <td class="text-center">29pv</td>
+                        <td class="text-center">{{ energyShakeLineTotal }}</td>
+                      </tr>
+                      <tr class="success">
+                        <td>3</td>
+                        <td>Roll-on</td>
+                        <td>R 75.00</td>
+                        <td>R 55.00</td>
+                        <td>
+                          <input
+                            size="3"
+                            [(ngModel)]="rollOnLineQty"
+                            (keyup)="updateLineTotals()"
+                            maxlength="2"
+                            type="number"
+                            class="form-control"
+                          />
+                        </td>
+                        <td class="text-center">14pv</td>
+                        <td class="text-center">{{ rollOnLineTotal }}</td>
+                      </tr>
+                      <tr class="success">
+                        <td>4</td>
+                        <td>Toothpaste</td>
+                        <td>R 45.00</td>
+                        <td>R 35.00</td>
+                        <td>
+                          <input
+                            size="3"
+                            [(ngModel)]="toothpasteQty"
+                            (keyup)="updateLineTotals()"
+                            maxlength="2"
+                            type="number"
+                            class="form-control"
+                          />
+                        </td>
+                        <td class="text-center">9pv</td>
+                        <td class="text-center">{{ toothpasteLineTotal }}</td>
+                      </tr>
+                      <tr class="success">
+                        <td>5</td>
+                        <td>Tissue Oil</td>
+                        <td>R 100.00</td>
+                        <td>R 75.00</td>
+                        <td>
+                          <input
+                            size="3"
+                            [(ngModel)]="tissueOilQty"
+                            (keyup)="updateLineTotals()"
+                            maxlength="2"
+                            type="number"
+                            class="form-control"
+                          />
+                        </td>
+                        <td class="text-center">20pv</td>
+                        <td class="text-center">{{ tissueOilLineTotal }}</td>
+                      </tr>
+                      <tr class="success">
+                        <td>5</td>
+                        <td>Body Lotion 250ml</td>
+                        <td>R 55.00</td>
+                        <td>R 40.00</td>
+                        <td>
+                          <input
+                            size="3"
+                            [(ngModel)]="bodyLotion250mlQty"
+                            (keyup)="updateLineTotals()"
+                            maxlength="2"
+                            type="number"
+                            class="form-control"
+                          />
+                        </td>
+                        <td class="text-center">10pv</td>
+                        <td class="text-center">
+                          {{ bodyLotion250mlLineTotal }}
+                        </td>
+                      </tr>
+                      <tr class="success">
+                        <td>6</td>
+                        <td>Body Lotion 500ml</td>
+                        <td>R 100</td>
+                        <td>R 80.00</td>
+                        <td>
+                          <input
+                            size="3"
+                            [(ngModel)]="bodyLotion500mQty"
+                            (keyup)="updateLineTotals()"
+                            maxlength="2"
+                            type="number"
+                            class="form-control"
+                          />
+                        </td>
+                        <td class="text-center">25pv</td>
+                        <td class="text-center">
+                          {{ bodyLotion500mlLineTotal }}
+                        </td>
+                      </tr>
+                      <tr class="success">
+                        <td>7</td>
+                        <td>Dishwashing Liquid</td>
+                        <td>R 35.00</td>
+                        <td>R 28.00</td>
+                        <td>
+                          <input
+                            size="3"
+                            [(ngModel)]="dishwashingLiquidQty"
+                            (keyup)="updateLineTotals()"
+                            maxlength="2"
+                            type="number"
+                            class="form-control"
+                          />
+                        </td>
+                        <td class="text-center">29pv</td>
+                        <td class="text-center">
+                          {{ dishwashingLiquidLineTotal }}
+                        </td>
+                      </tr>
+                      <tr class="success">
+                        <td>8</td>
+                        <td>Household Cleaner</td>
+                        <td>R 30.00</td>
+                        <td>R 25.00</td>
+                        <td>
+                          <input
+                            size="3"
+                            [(ngModel)]="householdCleanerQty"
+                            (keyup)="updateLineTotals()"
+                            maxlength="2"
+                            type="number "
+                            class="form-control"
+                          />
+                        </td>
+                        <td class="text-center">6pv</td>
+                        <td class="text-center">
+                          {{ householdCleanerLineTotal }}
+                        </td>
+                      </tr>
+                      <tr class="success">
+                        <td>9</td>
+                        <td>Hand soap Liquid</td>
+                        <td>R 35.00</td>
+                        <td>R 30.00</td>
+                        <td>
+                          <input
+                            size="3"
+                            [(ngModel)]="handSoapLiquidQty"
+                            (keyup)="updateLineTotals()"
+                            maxlength="2"
+                            type="number"
+                            class="form-control"
+                          />
+                        </td>
+                        <td class="text-center">8pv</td>
+                        <td class="text-center">
+                          {{ handSoapLiquidLineTotal }}
+                        </td>
+                      </tr>
+                      <tr class="success">
+                        <td>10</td>
+                        <td>Toilet Paper</td>
+                        <td>R 39.00</td>
+                        <td>R 34.00</td>
+                        <td>
+                          <input
+                            size="3"
+                            [(ngModel)]="toiletPaperQty"
+                            (keyup)="updateLineTotals()"
+                            maxlength="2"
+                            type="number"
+                            class="form-control"
+                          />
+                        </td>
+                        <td class="text-center">9pv</td>
+                        <td class="text-center">{{ toiletPaperLineTotal }}</td>
+                      </tr>
+                      <tr class="success">
+                        <td>11</td>
+                        <td>Mealie Meal 10kg</td>
+                        <td>R 120.00</td>
+                        <td>R 99.00</td>
+                        <td>
+                          <input
+                            size="3"
+                            [(ngModel)]="mealieMeal10kgQty"
+                            (keyup)="updateLineTotals()"
+                            maxlength="2"
+                            type="number"
+                            class="form-control"
+                          />
+                        </td>
+                        <td class="text-center">26pv</td>
+                        <td class="text-center">
+                          {{ mealieMeal10kgLineTotal }}
+                        </td>
+                      </tr>
+                      <tr class="success">
+                        <td>12</td>
+                        <td>Mealie Meal 5kg</td>
+                        <td>R 70.00</td>
+                        <td>R 55.00</td>
+                        <td>
+                          <input
+                            size="3"
+                            [(ngModel)]="mealieMeal5kgQty"
+                            (keyup)="updateLineTotals()"
+                            maxlength="2"
+                            type="number"
+                            class="form-control"
+                          />
+                        </td>
+                        <td class="text-center">17pv</td>
+                        <td class="text-center">
+                          {{ mealieMeal5kgLineTotal }}
+                        </td>
+                      </tr>
+                      <tr class="success">
+                        <td>13</td>
+                        <td>Mealie Meal 2kg</td>
+                        <td>R 40.00</td>
+                        <td>R 35.00</td>
+                        <td>
+                          <input
+                            size="3"
+                            [(ngModel)]="mealieMeal2kgQty"
+                            (keyup)="updateLineTotals()"
+                            maxlength="2"
+                            type="number"
+                            class="form-control"
+                          />
+                        </td>
+                        <td class="text-center">9pv</td>
+                        <td class="text-center">
+                          {{ mealieMeal2kgLineTotal }}
+                        </td>
+                      </tr>
+                      <tr class="success">
+                        <td>14</td>
+                        <td>Mealie Meal 1kg</td>
+                        <td>R 30.00</td>
+                        <td>R 26.00</td>
+                        <td>
+                          <input
+                            size="3"
+                            [(ngModel)]="mealieMeal1kgQty"
+                            (keyup)="updateLineTotals()"
+                            maxlength="2"
+                            type="number"
+                            class="form-control"
+                          />
+                        </td>
+                        <td class="text-center">7pv</td>
+                        <td class="text-center">
+                          {{ mealieMeal1kgLineTotal }}
+                        </td>
+                      </tr>
+                      <tr class="success">
+                        <td>15</td>
+                        <td>Soup 400g</td>
+                        <td>R 19.50</td>
+                        <td>R 16.00</td>
+                        <td>
+                          <input
+                            size="3"
+                            [(ngModel)]="soup400gQty"
+                            (keyup)="updateLineTotals()"
+                            maxlength="2"
+                            type="number"
+                            class="form-control"
+                          />
+                        </td>
+                        <td class="text-center">4pv</td>
+                        <td class="text-center">{{ soup400gLineTotal }}</td>
+                      </tr>
+                      <tr class="success">
+                        <td>16</td>
+                        <td>Soup 200g</td>
+                        <td>R 14.50</td>
+                        <td>R 12.00</td>
+                        <td>
+                          <input
+                            size="3"
+                            [(ngModel)]="soup200gQty"
+                            (keyup)="updateLineTotals()"
+                            maxlength="2"
+                            type="number"
+                            class="form-control"
+                          />
+                        </td>
+                        <td class="text-center">3pv</td>
+                        <td class="text-center">{{ soup200gLineTotal }}</td>
+                      </tr>
+                      <tr class="success">
+                        <td>17</td>
+                        <td>Moringa Mealie Meal 1kg</td>
+                        <td>R 45.00</td>
+                        <td>R 40.00</td>
+                        <td>
+                          <input
+                            size="3"
+                            [(ngModel)]="moringaMealieMeal1kgQty"
+                            (keyup)="updateLineTotals()"
+                            maxlength="2"
+                            type="number "
+                            class="form-control"
+                          />
+                        </td>
+                        <td class="text-center">10pv</td>
+                        <td class="text-center">{{ moringaMealieMeal1kg }}</td>
+                      </tr>
+                      <tr class="success">
+                        <td>18</td>
+                        <td>Moringa Mealie Meal 2kg</td>
+                        <td>R 70.00</td>
+                        <td>R 15.00</td>
+                        <td>
+                          <input
+                            size="3"
+                            [(ngModel)]="moringaMealieMeal2kgQty"
+                            (keyup)="updateLineTotals()"
+                            maxlength="2"
+                            type="number"
+                            class="form-control"
+                          />
+                        </td>
+                        <td class="text-center">15pv</td>
+                        <td class="text-center">{{ moringaMealieMeal2kg }}</td>
+                      </tr>
+                      <tr class="success">
+                        <td>19</td>
+                        <td>Pantyliners 30</td>
+                        <td>R 110.00</td>
+                        <td>R 90.00</td>
+                        <td>
+                          <input
+                            size="3"
+                            [(ngModel)]="padsQty"
+                            (keyup)="updateLineTotals()"
+                            maxlength="2"
+                            type="number"
+                            class="form-control"
+                          />
+                        </td>
+                        <td class="text-center">26pv</td>
+                        <td class="text-center">{{ padsLineTotal }}</td>
+                      </tr>
+                      <tr class="success">
+                        <td>21</td>
+                        <td>Extreme Hair Grow 200ml</td>
+                        <td>R 450.00</td>
+                        <td>R 400.00</td>
+                        <td>
+                          <input
+                            size="3"
+                            [(ngModel)]="extremeHairGrow200mlQty"
+                            (keyup)="updateLineTotals()"
+                            maxlength="2"
+                            type="number"
+                            class="form-control"
+                          />
+                        </td>
+                        <td class="text-center">50pv</td>
+                        <td class="text-center">
+                          {{ miracleOil200mlLineTotal }}
+                        </td>
+                      </tr>
+                      <tr class="success">
+                        <td>22</td>
+                        <td>Miracle Oil 200ml</td>
+                        <td>R 450.00</td>
+                        <td>R 400.00</td>
+                        <td>
+                          <input
+                            size="3"
+                            [(ngModel)]="miracleOil200mlQty"
+                            (keyup)="updateLineTotals()"
+                            maxlength="2"
+                            type="number"
+                            class="form-control"
+                          />
+                        </td>
+                        <td class="text-center">50pv</td>
+                        <td class="text-center">
+                          {{ miracleOil200mlLineTotal }}
+                        </td>
+                      </tr>
+                      <tr class="warning">
+                        <td></td>
+                        <td></td>
+                        <td class="hidden-xs hidden-sm"></td>
+                        <td class="hidden-xs hidden-sm"></td>
+                        <td class="hidden-xs hidden-sm"></td>
+                        <td class="text-right"><strong>Total Due</strong></td>
+                        <td class="text-right">
+                          <span class="text-danger"
+                            ><strong>{{
+                              orderTotal | currency: "R ":"code"
+                            }}</strong></span
+                          >
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <div class="alert alert-danger" *ngIf="showErrorMessage">
+                    <button type="button" class="close" data-dismiss="alert">
+                      &times;
+                    </button>
+                    <strong>Error!</strong> {{ errorMessage }}
+                  </div>
+                  <!-- Extras -->
+                  <div class="clearfix">
+                    <button
+                      (click)="submitOrder()"
+                      class="btn btn-lg btn-success pull-right push"
+                    >
+                      <i class="fa fa-spin fa-spinner" *ngIf="isBusy"> </i>
+                      Process Order
+                    </button>
+                  </div>
+                  <!-- END Extras -->
+                </div>
+              </div>
+              <!-- END Content -->
+            </div>
+            <!-- END Invoice Tile -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

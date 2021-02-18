@@ -1,0 +1,213 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <h1>
+    Members
+    <small>Add Member</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li>
+      <a href="#"><i class="fa fa-dashboard"></i> Home</a>
+    </li>
+    <li class="active">Members</li>
+  </ol>
+</section>
+
+<section class="content">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box">
+        <div class="box-header">
+          <div class="box-tools">
+            <div class="input-group input-group-sm" style="width: 150px">
+              <input
+                type="text"
+                name="table_search"
+                [(ngModel)]="term"
+                class="form-control pull-right"
+                placeholder="Search"
+              />
+
+              <div class="input-group-btn">
+                <button type="submit" class="btn btn-default">
+                  <i class="fa fa-search"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="box-body">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="dash-tile dash-tile-2x">
+                  <div class="dash-tile-header">
+                    <i class="fa fa-cube"></i> Members
+                  </div>
+                  <div class="dash-tile-content">
+                    <div class="dash-tile-content-inner-fluid">
+                      <table
+                        id="dash-example-orders"
+                        class="table table-striped table-bordered table-condensed table-hover"
+                      >
+                        <thead>
+                          <tr class="d-flex">
+                            <th class="col-1">Member Code</th>
+                            <th>Name & Surname</th>
+                            <th class="hidden-xs hidden-sm hidden-md">
+                              <i class="fa fa-sitemap"></i> Tree
+                            </th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr
+                            *ngFor="
+                              let member of members
+                                | async
+                                | paginate: { itemsPerPage: 10, currentPage: p }
+                                | filter: term
+                            "
+                          >
+                            <td class="col-1">{{ member.member_code }}</td>
+                            <td>
+                              {{ member.member_title }}
+                              {{ member.member_names }}
+                              {{ member.member_surname }}
+                            </td>
+                            <td>
+                              <button
+                                class="btn btn-info btn-xs"
+                                [routerLink]="[
+                                  '/level-one',
+                                  member.member_code
+                                ]"
+                              >
+                                MEMBER RECRUITS
+                              </button>
+                            </td>
+                            <td>
+                              <span
+                                *ngIf="member.status != 'Paid'"
+                                class="label label-warning"
+                                >Pending</span
+                              >
+                              <span
+                                *ngIf="member.status == 'Paid'"
+                                class="label label-success"
+                                >Active</span
+                              >
+                            </td>
+                            <td>
+                              <button
+                                [routerLink]="['/orders/order', member]"
+                                class="btn btn-warning btn-xs"
+                              >
+                                <i class="fa fa-shopping-cart"> Place Order</i>
+                              </button>
+                              <button
+                                [routerLink]="['/member-orders', member]"
+                                class="btn btn-primary btn-xs"
+                              >
+                                <i class="fa fa-history"> View Orders</i>
+                              </button>
+                              <button
+                                [routerLink]="['/statements/', member]"
+                                class="btn btn-success btn-xs"
+                              >
+                                <i class="fa fa-file-text" aria-hidden="true">
+                                  Commission Statement</i
+                                >
+                              </button>
+                              <a
+                                href="#modal-send-sms"
+                                role="button"
+                                data-toggle="modal"
+                                class="btn btn-info btn-xs"
+                                ><i class="fa fa-mobile" aria-hidden="true">
+                                  Send SMS</i
+                                >
+                              </a>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <pagination-controls
+                        (pageChange)="p = $event"
+                        class="pagination pagination-sm"
+                      ></pagination-controls>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<form [formGroup]="sendSmsForm" (submit)="sendSmsToMember(sendSmsForm.value)">
+  <div id="modal-send-sms" class="modal">
+    <!-- Modal Dialog -->
+    <div class="modal-dialog">
+      <!-- Modal Content -->
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-hidden="true"
+          >
+            ×
+          </button>
+          <h4>Compose SMS</h4>
+        </div>
+        <!-- END Modal Header -->
+
+        <!-- Modal Content -->
+        <div class="modal-body">
+          <div class="col-md-12">
+            <div class="input-group">
+              <span class="input-group-addon">Message:</span>
+              <textarea
+                type="text"
+                id="message"
+                formControlName="message"
+                maxlength="512"
+                rows="5"
+                class="form-control"
+              ></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="alert alert-success" *ngIf="showSuccessSmsAlert">
+          <button type="button" class="close" data-dismiss="alert">
+            &times;
+          </button>
+          <strong>Success!</strong> SMS sent successfully
+        </div>
+        <div class="alert alert-danger" *ngIf="showErrorSmsAlert">
+          <button type="button" class="close" data-dismiss="alert">
+            &times;
+          </button>
+          <strong>Error!</strong> Couldn't send SMS. Please try again
+        </div>
+        <!-- END Modal Content -->
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button class="btn btn-danger" data-dismiss="modal">
+            <i class="fa fa-times"></i> Close
+          </button>
+          <button type="submit" class="btn btn-success">
+            <i class="fa fa-spinner fa-spin" *ngIf="isSending"></i> Send SMS
+          </button>
+        </div>
+        <!-- END Modal footer -->
+      </div>
+      <!-- END Modal Content -->
+    </div>
+    <!-- END Modal Dialog -->
+  </div>
+</form>

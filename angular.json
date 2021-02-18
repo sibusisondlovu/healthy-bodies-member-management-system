@@ -117,8 +117,13 @@
               "devServerTarget": "healthy-bodies-member-management-system:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "healthy-bodies-member-management-system"
 }
