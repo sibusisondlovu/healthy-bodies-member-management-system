@@ -1,0 +1,315 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+      Members
+    </h1>
+    <ol class="breadcrumb">
+      <li>
+        <a href="#"><i class="fa fa-dashboard"></i> Home</a>
+      </li>
+      <li class="active">Members</li>
+    </ol>
+  </section>
+
+  <section class="content">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="box">
+          <div class="box-header">
+        
+            <div class="box-body">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="dash-tile dash-tile-2x">
+                    <div class="dash-tile-header">
+                    
+                    </div>
+                    <div class="dash-tile-content">
+                      <div class="dash-tile-content-inner-fluid">
+                        
+                        <div class="dash-tile dash-tile-2x">
+                            <div class="dash-tile-header">
+                              <div class="dash-tile-options">
+                                <button class="btn btn-danger btn-xs"><i class="fa fa-times"> Close</i></button>
+                              </div>
+                              <i class="fa fa-user"></i> New Member Application Form
+                            </div>
+                            <div class="dash-tile-content">
+                              <div class="dash-tile-content-inner-fluid">
+                                <form
+                                  [formGroup]="form"
+                                  (submit)="submitForm(form.value)"
+                                  class="form-horizontal form-box"
+                                >
+                                  <div class="row">
+                                    <div class="form-box-content">
+                                      <h5 class="form-box-sub-header">Referrer Details</h5>
+                                      <div class="form-group">
+                                        <div class="col-md-4">
+                                          <div class="input-group">
+                                            <span class="input-group-addon">Referrer Code:</span>
+                                            <input
+                                              maxlength=10
+                                              type="text"
+                                              id="referrer_code"
+                                              formControlName="referrer_code"
+                                              class="form-control"
+                                            />
+                                          </div>
+                                        </div>
+                    
+                                        <div class="col-md-4">
+                                          <div class="input-group">
+                                            <span class="input-group-addon">Name:</span>
+                                            <input
+                                              type="text"
+                                              id="referrer_name"
+                                              maxlength=15
+                                              formControlName="referrer_name"
+                                              class="form-control"
+                                            />
+                                          </div>
+                                        </div>
+                    
+                                        <div class="col-md-4">
+                                          <div class="input-group">
+                                            <span class="input-group-addon">Surname:</span>
+                                            <input
+                                              type="text"
+                                              id="referrer_surname"
+                                              formControlName="referrer_surname"
+                                              maxlength=15
+                                              class="form-control"
+                                            />
+                                          </div>
+                                        </div>
+                    
+                                        <div class="col-md-4">
+                                          <div class="input-group">
+                                            <span class="input-group-addon">Mobile:</span>
+                                            <input
+                                              maxlength=10
+                                              type="number"
+                                              id="referrer_mobile"
+                                              formControlName="referrer_mobile"
+                                              class="form-control"
+                                            />
+                                          </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                          <div class="input-group">
+                                            <span class="input-group-addon">Spillover:</span>
+                                            <input
+                                              maxlength=10
+                                              type="text"
+                                              id="spill_over"
+                                              formControlName="spill_over"
+                                              class="form-control"
+                                            />
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                    
+                                  <div class="row">
+                                    <div class="form-box-content">
+                                      <h5 class="form-box-sub-header">Personal Details</h5>
+                                      <div class="form-group">
+                                        <div class="col-md-4">
+                                          <div class="input-group">
+                                            <span class="input-group-addon">Surname:</span>
+                                            <input
+                                              type="text"
+                                              id="member_surname"
+                                              maxlength="20"
+                                              formControlName="member_surname"
+                                              class="form-control"
+                                            />
+                                          </div>
+                                        </div>
+                    
+                                        <div class="col-md-6">
+                                          <div class="input-group">
+                                            <span class="input-group-addon">Names:</span>
+                                            <input
+                                              type="text"
+                                              id="member_names"
+                                              maxlength="15"
+                                              formControlName="member_names"
+                                              class="form-control"
+                                            />
+                                          </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                          <div class="input-group">
+                                            <span class="input-group-addon">ID/Passport No:</span>
+                                            <input
+                                              type="number"
+                                              id="member_id"
+                                              maxlength="13"
+                                              formControlName="member_id"
+                                              class="form-control"
+                                            />
+                                          </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                          <div class="input-group">
+                                            <span class="input-group-addon">Mobile:</span>
+                                            <input
+                                              type="number"
+                                              maxlength="10"
+                                              id="member_mobile"
+                                              formControlName="member_mobile"
+                                              class="form-control"
+                                            />
+                                          </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                          <div class="input-group">
+                                            <span class="input-group-addon">Country:</span>
+                                            <input
+                                              type="text"
+                                              maxlength="20"
+                                              id="member_country"
+                                              formControlName="member_country"
+                                              class="form-control"
+                                            />
+                                          </div>
+                                        </div>
+                                        <div class="col-md-9">
+                                          <div class="input-group">
+                                            <span class="input-group-addon">Address:</span>
+                                            <input
+                                              type="text"
+                                              maxlength="50"
+                                              id="member_residential_address"
+                                              formControlName="member_residential_address"
+                                              class="form-control"
+                                            />
+                                          </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                          <div class="input-group">
+                                            <span class="input-group-addon">Code:</span>
+                                            <input
+                                              maxlength="4"
+                                              type="number"
+                                              id="postal_code"
+                                              formControlName="postal_code"
+                                              class="form-control"
+                                            />
+                                          </div>
+                                        </div>
+                                        <div class="col-md-7">
+                                          <div class="input-group">
+                                            <span class="input-group-addon">Email Address:</span>
+                                            <input
+                                              type="email"
+                                              maxlength="50"
+                                              id="member_email"
+                                              formControlName="member_email"
+                                              class="form-control"
+                                            />
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                    
+                                  <div class="row">
+                                    <div class="form-box-content">
+                                      <h5 class="form-box-sub-header">Banking Details</h5>
+                                      <div class="form-group">
+                                        <div class="col-md-4">
+                                          <div class="input-group">
+                                            <span class="input-group-addon">Bank Name:</span>
+                                            <input
+                                              type="text"
+                                              maxlength="15"
+                                              id="bank_name"
+                                              formControlName="bank_name"
+                                              class="form-control"
+                                            />
+                                          </div>
+                                        </div>
+                    
+                                        <div class="col-md-5">
+                                          <div class="input-group">
+                                            <span class="input-group-addon">Branch:</span>
+                                            <input
+                                              type="text"
+                                              id="branch_name"
+                                              formControlName="branch_name"
+                                              maxlength="20"
+                                              class="form-control"
+                                            />
+                                          </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                          <div class="input-group">
+                                            <span class="input-group-addon">Branch Code:</span>
+                                            <input
+                                              type="number"
+                                              maxlength="6"
+                                              id="branch_code"
+                                              formControlName="branch_code"
+                                              class="form-control"
+                                            />
+                                          </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                          <div class="input-group">
+                                            <span class="input-group-addon">Account Holder:</span>
+                                            <input
+                                              type="text"
+                                              maxlength="20"
+                                              id="account_holder"
+                                              formControlName="account_holder"
+                                              class="form-control"
+                                            />
+                                          </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                          <div class="input-group">
+                                            <span class="input-group-addon">Account Number:</span>
+                                            <input
+                                              type="number"
+                                              id="account_number"
+                                              formControlName="account_number"
+                                              class="form-control"
+                                            />
+                                          </div>
+                                        </div>
+                    
+                                      </div>
+                    
+                                    </div>
+                                  </div>
+                                  <div class="alert alert-success" *ngIf="showSuccessAlert">
+                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                    <strong>Success!</strong> {{successMessage}}
+                                  </div>
+                                  <div class="alert alert-danger" *ngIf="showErrorAlert">
+                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                    <strong>Error!</strong> {{errorMessage}}
+                                  </div>
+                                  <div class="input-group">
+                                      <button type="submit" class="btn btn-success mr-1"> <i class="fa fa-spin fa-spinner"  *ngIf="busy" > </i>
+                                        {{submitButtonText}}</button>
+                                    </div>
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

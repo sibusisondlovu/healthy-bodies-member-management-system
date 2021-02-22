@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { CommissionsComponent } from './components/commissions/commissions.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
+import { AddMemberComponent } from './components/members/add-member/add-member.component';
 import { MembersComponent } from './components/members/members.component';
 import { ComposeComponent } from './components/messaging/compose/compose.component';
 import { MemberOrdersComponent } from './components/orders/member-orders/member-orders.component';
@@ -27,6 +28,11 @@ const routes: Routes = [
   {
     path: 'members',
     component: MembersComponent,
+    //canActivate: [AuthGuard],
+  },
+  {
+    path: 'add-member',
+    component: AddMemberComponent,
     //canActivate: [AuthGuard],
   },
   {

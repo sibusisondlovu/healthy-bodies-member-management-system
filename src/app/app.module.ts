@@ -25,6 +25,7 @@ import { CommissionsComponent } from './components/commissions/commissions.compo
 import { ComposeComponent } from './components/messaging/compose/compose.component';
 import { StatementsComponent } from './components/statements/statements.component';
 import { MemberOrdersComponent } from './components/orders/member-orders/member-orders.component';
+import { AddMemberComponent } from './components/members/add-member/add-member.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { MemberOrdersComponent } from './components/orders/member-orders/member-
     ComposeComponent,
     StatementsComponent,
     MemberOrdersComponent,
+    AddMemberComponent,
   ],
   imports: [
     BrowserModule,

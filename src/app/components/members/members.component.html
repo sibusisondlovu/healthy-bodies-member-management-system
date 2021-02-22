@@ -2,7 +2,6 @@
 <section class="content-header">
   <h1>
     Members
-    <small>Add Member</small>
   </h1>
   <ol class="breadcrumb">
     <li>
@@ -39,7 +38,14 @@
               <div class="col-sm-12">
                 <div class="dash-tile dash-tile-2x">
                   <div class="dash-tile-header">
-                    <i class="fa fa-cube"></i> Members
+                    <button
+                                [routerLink]="['/add-member']"
+                                class="btn btn-warning btn-xs"
+                              >
+                                <i class="fa fa-plus"> Add Member</i>
+                              
+                              </button>
+                              <br>
                   </div>
                   <div class="dash-tile-content">
                     <div class="dash-tile-content-inner-fluid">
