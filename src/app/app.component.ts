@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 import { AuthService } from './services/auth.service';
 
 @Component({
@@ -10,17 +12,30 @@ export class AppComponent {
   title = 'healthy-bodies-member-management-system';
 
   isAuthenticated = false;
+  user: any;
 
-  constructor(public authService: AuthService) {}
+  constructor(public afAuth: AngularFireAuth, private router: Router) {}
 
   ngOnInit() {
-    //this.authService. getAuthStatus();
-    this.authService.currentAuthStatus.subscribe(
-      (authStatus) => (this.isAuthenticated = authStatus)
+    this.afAuth.authState.subscribe(
+      (user) => {
+        if (user != null) {
+          this.user = user;
+          this.router.navigateByUrl('dashboard');
+          //this.checkUserRole(user.uid);
+          return this.user;
+        } else {
+          //this.spinner.hide();
+        }
+      },
+      (error) => {
+        // this.spinner.hide();
+        alert(error);
+      }
     );
   }
 
   signOut() {
-    this.authService.signOut();
+    this.afAuth.signOut();
   }
 }

@@ -6,7 +6,7 @@
   </h1>
   <ol class="breadcrumb">
     <li>
-      <a href="#"><i class="fa fa-dashboard"></i> Home</a>
+      <a routerLink="/dashboard"><i class="fa fa-dashboard"></i> Home</a>
     </li>
     <li class="active">Dashboard</li>
   </ol>
@@ -20,14 +20,14 @@
       <!-- small box -->
       <div class="small-box bg-green">
         <div class="inner">
-          <h3>0</h3>
+          <h3>{{ totalOrders }}</h3>
 
           <p>Orders</p>
         </div>
         <div class="icon">
           <i class="ion ion-bag"></i>
         </div>
-        <a href="#" class="small-box-footer"
+        <a routerLink="/orders" class="small-box-footer"
           >View <i class="fa fa-arrow-circle-right"></i
         ></a>
       </div>
@@ -37,15 +37,15 @@
       <!-- small box -->
       <div class="small-box bg-green">
         <div class="inner">
-          <h3>0</h3>
+          <h3>{{ remainingSMSBalance }}</h3>
 
           <p>SMS Credits</p>
         </div>
         <div class="icon">
           <i class="ion ion-stats-bars"></i>
         </div>
-        <a href="#" class="small-box-footer"
-          >Top Up <i class="fa fa-arrow-circle-right"></i
+        <a routerLink="/compose-sms" class="small-box-footer"
+          >Send SMS <i class="fa fa-arrow-circle-right"></i
         ></a>
       </div>
     </div>
@@ -54,14 +54,14 @@
       <!-- small box -->
       <div class="small-box bg-green">
         <div class="inner">
-          <h3>0</h3>
+          <h3>{{ totalMembers }}</h3>
 
           <p>Members</p>
         </div>
         <div class="icon">
           <i class="ion ion-person-add"></i>
         </div>
-        <a href="#" class="small-box-footer"
+        <a routerLink="/members" class="small-box-footer"
           >View Members<i class="fa fa-arrow-circle-right"></i
         ></a>
       </div>

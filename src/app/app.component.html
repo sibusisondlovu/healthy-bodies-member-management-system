@@ -1,5 +1,5 @@
 <div class="wrapper">
-  <header *ngIf="isAuthenticated" class="main-header">
+  <header *ngIf="user" class="main-header">
     <!-- Logo -->
     <a href="" class="logo">
       <span class="logo-lg"><b>Healthy </b>Bodies MMS</span>
@@ -50,7 +50,7 @@
     </nav>
   </header>
   <!-- Left side column. contains the logo and sidebar -->
-  <aside *ngIf="isAuthenticated" class="main-sidebar">
+  <aside *ngIf="user" class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
       <!-- Sidebar user panel -->

@@ -9,11 +9,15 @@
     <div class="login-box-body">
       <p class="login-box-msg">Login to start your session</p>
 
-      <form>
+      <form
+        class="user"
+        [formGroup]="loginForm"
+        (ngSubmit)="onSubmit(loginForm.value)"
+      >
         <div class="form-group">
           <input
             type="text"
-            #username
+            formControlName="email"
             class="form-control"
             placeholder="Username"
           />
@@ -26,6 +30,7 @@
             type="password"
             #password
             class="form-control"
+            formControlName="password"
             placeholder="Password"
           />
         </div>
