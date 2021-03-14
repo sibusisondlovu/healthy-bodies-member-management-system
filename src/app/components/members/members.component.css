@@ -1,0 +1,8 @@
+.inputHeader{width:100%}
+.table-fixed {
+  height: 400px;
+  overflow-y: auto;
+  width: 100%;
+  display: block;
+}
+

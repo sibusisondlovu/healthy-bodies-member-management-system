@@ -16,23 +16,22 @@
       <div class="col-xs-12">
         <div class="box">
           <div class="box-header">
-        
+
             <div class="box-body">
               <div class="row">
                 <div class="col-sm-12">
                   <div class="dash-tile dash-tile-2x">
                     <div class="dash-tile-header">
-                    
+
                     </div>
                     <div class="dash-tile-content">
                       <div class="dash-tile-content-inner-fluid">
-                        
+
                         <div class="dash-tile dash-tile-2x">
                             <div class="dash-tile-header">
                               <div class="dash-tile-options">
-                                <button class="btn btn-danger btn-xs"><i class="fa fa-times"> Close</i></button>
+                                <button class="btn btn-danger btn-xs"  routerLink="/members" ><i class="fa fa-times"> Close</i></button>
                               </div>
-                              <i class="fa fa-user"></i> New Member Application Form
                             </div>
                             <div class="dash-tile-content">
                               <div class="dash-tile-content-inner-fluid">
@@ -57,7 +56,7 @@
                                             />
                                           </div>
                                         </div>
-                    
+
                                         <div class="col-md-4">
                                           <div class="input-group">
                                             <span class="input-group-addon">Name:</span>
@@ -70,7 +69,7 @@
                                             />
                                           </div>
                                         </div>
-                    
+
                                         <div class="col-md-4">
                                           <div class="input-group">
                                             <span class="input-group-addon">Surname:</span>
@@ -83,13 +82,13 @@
                                             />
                                           </div>
                                         </div>
-                    
+
                                         <div class="col-md-4">
                                           <div class="input-group">
                                             <span class="input-group-addon">Mobile:</span>
                                             <input
                                               maxlength=10
-                                              type="number"
+                                              type="text"
                                               id="referrer_mobile"
                                               formControlName="referrer_mobile"
                                               class="form-control"
@@ -111,7 +110,7 @@
                                       </div>
                                     </div>
                                   </div>
-                    
+
                                   <div class="row">
                                     <div class="form-box-content">
                                       <h5 class="form-box-sub-header">Personal Details</h5>
@@ -128,7 +127,7 @@
                                             />
                                           </div>
                                         </div>
-                    
+
                                         <div class="col-md-6">
                                           <div class="input-group">
                                             <span class="input-group-addon">Names:</span>
@@ -157,7 +156,7 @@
                                           <div class="input-group">
                                             <span class="input-group-addon">Mobile:</span>
                                             <input
-                                              type="number"
+                                              type="text"
                                               maxlength="10"
                                               id="member_mobile"
                                               formControlName="member_mobile"
@@ -216,7 +215,7 @@
                                       </div>
                                     </div>
                                   </div>
-                    
+
                                   <div class="row">
                                     <div class="form-box-content">
                                       <h5 class="form-box-sub-header">Banking Details</h5>
@@ -233,7 +232,7 @@
                                             />
                                           </div>
                                         </div>
-                    
+
                                         <div class="col-md-5">
                                           <div class="input-group">
                                             <span class="input-group-addon">Branch:</span>
@@ -258,7 +257,7 @@
                                             />
                                           </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                           <div class="input-group">
                                             <span class="input-group-addon">Account Holder:</span>
                                             <input
@@ -270,7 +269,7 @@
                                             />
                                           </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                           <div class="input-group">
                                             <span class="input-group-addon">Account Number:</span>
                                             <input
@@ -281,9 +280,20 @@
                                             />
                                           </div>
                                         </div>
-                    
+                                        <div class="col-md-4">
+                                          <div class="input-group">
+                                            <span class="input-group-addon">Account Type:</span>
+                                            <input
+                                              type="number"
+                                              id="account_type"
+                                              formControlName="account_type"
+                                              class="form-control"
+                                            />
+                                          </div>
+                                        </div>
+
                                       </div>
-                    
+
                                     </div>
                                   </div>
                                   <div class="alert alert-success" *ngIf="showSuccessAlert">

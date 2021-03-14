@@ -47,6 +47,7 @@ export class AddMemberComponent implements OnInit {
       bank_name: ['', Validators.required],
       branch_name: ['', Validators.required],
       branch_code: ['', Validators.required],
+      account_type: ['', Validators.required],
     });
   }
 
@@ -56,7 +57,7 @@ export class AddMemberComponent implements OnInit {
     const timestamp = d.getTime();
     const code = timestamp.toString().substr(timestamp.toString().length - 5);
     formData.member_code = 'HB' + code;
-    formData.status = 'Paid';
+    formData.status = 'Pending';
     this.createMemberDetails(formData);
   }
 
@@ -136,6 +137,8 @@ export class AddMemberComponent implements OnInit {
   }
 
   private sendSMS(formData): void {
+
+    // clean member number
     const message = 'Welcome ' + formData.member_names + ' ' + formData.member_surname + ' to Health Bodies. Your member code is ' + formData.member_code;
     const smsGatewayUrl = 'https://platform.clickatell.com/messages/http/send?apiKey=IKUs7lgzQhWdEzs3LMxFHw==&to=' + formData.member_mobile + '&content=' + message;
 
