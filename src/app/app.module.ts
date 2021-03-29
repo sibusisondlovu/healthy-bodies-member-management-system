@@ -26,6 +26,8 @@ import { ComposeComponent } from './components/messaging/compose/compose.compone
 import { StatementsComponent } from './components/statements/statements.component';
 import { MemberOrdersComponent } from './components/orders/member-orders/member-orders.component';
 import { AddMemberComponent } from './components/members/add-member/add-member.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ToastrModule} from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -55,6 +57,8 @@ import { AddMemberComponent } from './components/members/add-member/add-member.c
     HttpClientModule,
     Ng2SearchPipeModule,
     // HttpClientModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(),
     ReactiveFormsModule,
     ConfirmationPopoverModule.forRoot({
       confirmButtonType: 'danger', // set defaults here

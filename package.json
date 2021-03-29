@@ -11,7 +11,7 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~9.1.1",
+    "@angular/animations": "^9.1.13",
     "@angular/common": "~9.1.1",
     "@angular/compiler": "~9.1.1",
     "@angular/core": "~9.1.1",
@@ -26,6 +26,7 @@
     "ngx-confirm-box": "0.0.3",
     "ngx-pagination": "^5.0.0",
     "ngx-spinner": "^10.0.1",
+    "ngx-toastr": "^13.2.1",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

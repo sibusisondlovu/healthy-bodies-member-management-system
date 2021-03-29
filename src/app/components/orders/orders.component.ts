@@ -42,7 +42,7 @@ export class OrdersComponent implements OnInit {
   ngOnInit() {
     // this.initForm();
     this.orders = this.firestore
-      .collection('orders', (ref) => ref.orderBy('date', 'desc'))
+      .collection('orders', (ref) => ref.orderBy('created_at', 'asc'))
       .valueChanges();
     this.orders.subscribe((data: any) => {
       this.orderItems = data[0].orderItems;

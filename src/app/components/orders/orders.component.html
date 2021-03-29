@@ -1,5 +1,8 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
+  <h1>
+    Members
+  </h1>
   <ol class="breadcrumb">
     <li>
       <a href="#"><i class="fa fa-dashboard"></i> Home</a>
@@ -30,7 +33,6 @@
           </div>
           <div class="row">
             <div class="col-sm-12">
-              <!-- Datatables Tile -->
               <div class="dash-tile dash-tile-2x">
                 <div class="dash-tile-header">
                   <i class="fa fa-cube"></i> Orders
@@ -39,7 +41,7 @@
                   <div class="dash-tile-content-inner-fluid">
                     <table
                       id="dash-example-orders"
-                      class="table table-striped table-bordered table-condensed table-hover"
+                      class="table table-striped table-bordered table-condensed table-hover table-fixed"
                     >
                       <thead>
                         <tr>
@@ -56,20 +58,13 @@
                           *ngFor="
                             let order of orders
                               | async
-                              | paginate: { itemsPerPage: 10, currentPage: p }
+
                               | filter: term
                           "
                         >
                           <td class="">
                             <div class="btn-group">
-                              <a
-                                href="#modal-edit-order-details"
-                                role="button"
-                                data-toggle="modal"
-                                class="btn btn-xs btn-warning"
-                                (click)="editOrderDate(order.order_number)"
-                                ><i class="fa fa-pencil"></i
-                              ></a>
+
                               <a
                                 href="#modal-order-details"
                                 role="button"
@@ -99,14 +94,9 @@
                         </tr>
                       </tbody>
                     </table>
-                    <pagination-controls
-                      (pageChange)="p = $event"
-                      class="pagination pagination-sm"
-                    ></pagination-controls>
                   </div>
                 </div>
               </div>
-              <!-- END Datatables Tile -->
             </div>
           </div>
         </div>

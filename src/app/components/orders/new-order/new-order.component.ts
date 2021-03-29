@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-new-order',
@@ -99,7 +100,8 @@ export class NewOrderComponent implements OnInit {
   constructor(
     private firestore: AngularFirestore,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit() {
@@ -258,6 +260,7 @@ export class NewOrderComponent implements OnInit {
       customer: this.customer,
       member_code: this.memberCode,
       date: this.orderDate,
+      created_at: new Date(),
       status: 'PAID',
       total: this.orderTotal,
       points: this.orderPoints,
@@ -407,12 +410,17 @@ export class NewOrderComponent implements OnInit {
           .collection('commissions')
           .doc(orderNumber)
           .set(commission)
-          .then(() => {})
+          .then((data) => {
+            this.toastr.success('Order Number: ' + orderNumber + ' completed. ', 'Success');
+            this.router.navigateByUrl('/orders');
+          })
           .catch((error) => {
             console.log(error);
+            this.toastr.error(error, 'Error Occurred.');
           });
 
-        this.router.navigateByUrl('/orders');
+
+        // this.router.navigateByUrl('/orders');
         // close and redirect to orders list page
       })
       .catch((error) => {
